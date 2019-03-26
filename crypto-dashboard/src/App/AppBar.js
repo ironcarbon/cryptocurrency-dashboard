@@ -1,5 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { AppContext } from './AppProvider';
+
 
 const Logo = styled.div`
     font-size: 1.5rem;
@@ -23,11 +25,18 @@ function toProperCase(str) {
     return str.charAt(0).toUpperCase() + str.substr(1);
 }
 
-function ControlButton({ name, active }) {
+function ControlButton({ name }) {
     return (
-        <ControlButtonElem active={active}>
-            {toProperCase(name)}
-        </ControlButtonElem>
+        <AppContext.Consumer>
+            {({ page, setPage }) => (
+                <ControlButtonElem
+                    active={page === name}
+                    onClick={() => setPage(name)}
+                >
+                    {toProperCase(name)}
+                </ControlButtonElem>
+            )}
+        </AppContext.Consumer>
     )
 }
 
