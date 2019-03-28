@@ -23,7 +23,7 @@ export class AppProvider extends React.Component {
         let coinList = (await cc.coinList()).Data;
         // console.log(coinList)
         this.setState({ coinList })
-        console.log(this.state);
+        //console.log(this.state);
     }
 
     confirmFavorites = () => {
