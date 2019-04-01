@@ -32,7 +32,7 @@ export class AppProvider extends React.Component {
 
     fetchCoins = async () => {
         let coinList = (await cc.coinList()).Data;
-        //console.log(coinList)
+        // console.log(coinList)
         this.setState({ coinList })
         //console.log(this.state);
     }
